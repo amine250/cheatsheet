@@ -3,20 +3,20 @@
 import { useState, useEffect } from "react"
 import Fuse from "fuse.js"
 import { Search, Copy, Check } from "lucide-react"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+import { Input } from "../components/ui/input"
+import { Button } from "../components/ui/button"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Skeleton } from "@/components/ui/skeleton"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+} from "../components/ui/accordion"
+import { ScrollArea } from "../components/ui/scroll-area"
+import { Skeleton } from "../components/ui/skeleton"
+import { Alert, AlertDescription, AlertTitle } from "../components/ui/alert"
 import { motion, AnimatePresence } from "framer-motion"
 
-const CHEAT_SHEET_URL = "https://raw.githubusercontent.com/amine250/cheatsheet/refs/heads/main/cheat-sheet-data.json"
+const CHEAT_SHEET_URL = "https://raw.githubusercontent.com/amine250/cheatsheet/refs/heads/data/cheat-sheet-data.json"
 
 type CheatSheetItem = {
   title: string
