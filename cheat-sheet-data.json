@@ -8,11 +8,11 @@
     ]
   },
   {
-    "category": "Bash Scripts",
+    "category": "Bash Snippets",
     "items": [
       {
-        "title": "Hello World",
-        "content": "#!/bin/bash\necho \"Hello, World!\""
+        "title": "Setup Proxy",
+        "content": "export {HTTP,HTTPS}_PROXY=127.0.0.1:8080\nexport {http,https}_proxy=127.0.0.1:8080"
       },
       {
         "title": "For loop",
@@ -27,5 +27,38 @@
       { "title": "Add files", "content": "git add ." },
       { "title": "Commit changes", "content": "git commit -m 'Commit message'" }
     ]
-  }
+  },
+  {
+    "category": "Kubernetes",
+    "items": [
+      {
+        { "title": "Expose kubernetes pod locally", "content": "# Listen on port 8443 locally, forwarding to the targetPort of the service\'s port named \"https\" in a pod selected by the service\nkubectl port-forward service/myservice 8443:https\n\n# Listen on port 8888 locally, forwarding to 5000 in the pod\nkubectl port-forward pod/mypod 8888:5000" }
+      }
+    ]
+  },
+  {
+    "category": "Docker",
+    "items": [
+      {
+        { "title": "placeholder", "content": "placeholder" }
+      }
+    ]
+  },
+  {
+    "category": "Terraform",
+    "items": [
+      {
+        { "title": "placeholder", "content": "placeholder" }
+      }
+    ]
+  },
+  {
+    "category": "Amazon Web Services (AWS)",
+    "items": [
+      {
+        { "title": "CloudWatch Filter to see WAF blocked requests by hostname", "content": "{ ($.Action = \"BLOCK\") && ($.Request.Headers[0].Value = \"www.hostname.com\") }" },
+        { "title": "placeholder", "content": "placeholder" }
+      }
+    ]
+  },
 ]
