@@ -6,7 +6,7 @@
       { "title": "List open network sockets of a process", "content": "netstat -aonp | grep <process_name>" },
       {
         "title": "Setup Proxy",
-        "content": "export {HTTP,HTTPS}_PROXY=127.0.0.1:8080\nexport {http,https,ftp}_proxy=127.0.0.1:8080"
+        "content": "export {HTTP,HTTPS,FTP}_PROXY=127.0.0.1:8080\nexport {http,https,ftp}_proxy=127.0.0.1:8080"
       }
     ]
   },
