@@ -1,6 +1,5 @@
-"use client"
-
 import { useState, useEffect } from "react"
+import useSWR from 'swr'
 import Fuse from "fuse.js"
 import { Search, Copy, Check } from "lucide-react"
 import { Input } from "../components/ui/input"
@@ -33,36 +32,16 @@ const fuseOptions = {
   threshold: 0.4,
 }
 
+const fetcher = (url: string) => fetch(url).then((res) => res.json())
+
 export default function ITCheatSheet() {
-  const [cheatSheetData, setCheatSheetData] = useState<CheatSheetCategory[]>([])
+  const { data: cheatSheetData, error } = useSWR<CheatSheetCategory[]>(CHEAT_SHEET_URL, fetcher)
   const [searchQuery, setSearchQuery] = useState("")
   const [searchResults, setSearchResults] = useState<CheatSheetCategory[]>([])
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
   const [copiedStates, setCopiedStates] = useState<{ [key: string]: boolean }>({})
 
   useEffect(() => {
-    const fetchCheatSheetData = async () => {
-      try {
-        const response = await fetch(CHEAT_SHEET_URL)
-        if (!response.ok) {
-          throw new Error("Failed to fetch cheat sheet data")
-        }
-        const data = await response.json()
-        setCheatSheetData(data)
-        setSearchResults(data)
-      } catch (err) {
-        setError("Error loading cheat sheet data. Please try again later.")
-      } finally {
-        setIsLoading(false)
-      }
-    }
-
-    fetchCheatSheetData()
-  }, [])
-
-  useEffect(() => {
-    if (cheatSheetData.length > 0) {
+    if (cheatSheetData) {
       const fuse = new Fuse(cheatSheetData, fuseOptions)
       
       if (searchQuery === "") {
@@ -86,7 +65,18 @@ export default function ITCheatSheet() {
     }, 2000)
   }
 
-  if (isLoading) {
+  if (error) {
+    return (
+      <div className="container mx-auto p-4 max-w-6xl">
+        <Alert variant="destructive">
+          <AlertTitle>Error</AlertTitle>
+          <AlertDescription>Failed to load cheat sheet data. Please try again later.</AlertDescription>
+        </Alert>
+      </div>
+    )
+  }
+
+  if (!cheatSheetData) {
     return (
       <div className="container mx-auto p-4 max-w-6xl">
         <h1 className="text-4xl font-bold mb-6 text-primary text-center">Amine&apos;s Cheat Sheet</h1>
@@ -96,17 +86,6 @@ export default function ITCheatSheet() {
             <Skeleton key={i} className="w-full h-40" />
           ))}
         </div>
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className="container mx-auto p-4 max-w-6xl">
-        <Alert variant="destructive">
-          <AlertTitle>Error</AlertTitle>
-          <AlertDescription>{error}</AlertDescription>
-        </Alert>
       </div>
     )
   }

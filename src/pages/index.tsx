@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { useState } from 'react'
 import ITCheatSheet from '../components/it-cheat-sheet'
 
 export default function Home() {
