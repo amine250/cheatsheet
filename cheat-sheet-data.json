@@ -8,7 +8,7 @@
       { "title": "Find string then replace in all files of current dir", "content": "find . -type f -name '*' -exec sed -i 's\/original\/replacement\/g' {} \\;" },
       { "title": "Setup Proxy", "content": "export {HTTP,HTTPS,FTP}_PROXY=127.0.0.1:8080\nexport {http,https,ftp}_proxy=127.0.0.1:8080" },
       { "title": "Push a runnning command's process to the background", "content": "ctrl-z + jobs + bg + disown (id)" },
-      { "title": "Compress Extract using tar", "content": "tar -cvJpf archive.tar.xz directory # compress directory\r\ntar -xvJf archive.tar.xz -C directory # extract to directory" }
+      { "title": "Compress Extract using tar", "content": "tar -cvJpf archive.tar.xz directory # compress directory\ntar -xvJf archive.tar.xz -C directory # extract to directory" }
     ]
   },
   {
@@ -16,14 +16,14 @@
     "items": [
       {
         "title": "Trust company certificate inside WSL and Python for AWS CLI",
-        "content": "echo quit | openssl s_client -showcerts -servername \"eu-west-1.signin.aws.amazon.com\" -connect eu-west-1.signin.aws.amazon.com:443 > cacert.crt\r\nsudo cp cacert.crt \/usr\/local\/share\/ca-certificates\/cacert.crt\r\nsudo update-ca-certificates\r\npip3 config set global.cert \/etc\/ssl\/certs\/ca-certificates.crt"
+        "content": "echo quit | openssl s_client -showcerts -servername \"eu-west-1.signin.aws.amazon.com\" -connect eu-west-1.signin.aws.amazon.com:443 > cacert.crt\nsudo cp cacert.crt \/usr\/local\/share\/ca-certificates\/cacert.crt\nsudo update-ca-certificates\npip3 config set global.cert \/etc\/ssl\/certs\/ca-certificates.crt"
       }
     ]
   },
   {
     "category": "Git Commands",
     "items": [
-      { "title": "Cherry pick a commit from a different git project", "content": "git init" }
+      { "title": "Cherry pick a commit from a different git project", "content": "git remote add other https:\/\/example.link\/repository.git\ngit fetch other\ngit cherry-pick <commit-id>" }
     ]
   },
   {
@@ -51,7 +51,7 @@
     "category": "Amazon Web Services (AWS)",
     "items": [
       { "title": "CloudWatch Filter to see WAF blocked requests by hostname", "content": "{ ($.Action = \"BLOCK\") && ($.Request.Headers[0].Value = \"www.hostname.com\") }" },
-      { "title": "Athena WAF filter by ratebasedruleid", "content": "SELECT from_unixtime(timestamp \/ 1000e0), * FROM \"db\".\"table\"\r\nWHERE day >= '2021\/10\/03\/00' AND day < '2021\/11\/29\/08'\r\nAND webaclid = 'xxxxx'\r\nAND element_at(ratebasedrulelist, 1).ratebasedruleid = 'yyyyy'" }
+      { "title": "Athena WAF filter by ratebasedruleid", "content": "SELECT from_unixtime(timestamp \/ 1000e0), * FROM \"db\".\"table\"\nWHERE day >= '2021\/10\/03\/00' AND day < '2021\/11\/29\/08'\nAND webaclid = 'xxxxx'\nAND element_at(ratebasedrulelist, 1).ratebasedruleid = 'yyyyy'" }
     ]
   }
 ]
