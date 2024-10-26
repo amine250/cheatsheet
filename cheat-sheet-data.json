@@ -52,5 +52,5 @@
       { "title": "CloudWatch Filter to see WAF blocked requests by hostname", "content": "{ ($.Action = \"BLOCK\") && ($.Request.Headers[0].Value = \"www.hostname.com\") }" },
       { "title": "placeholder", "content": "placeholder" }
     ]
-  },
+  }
 ]
