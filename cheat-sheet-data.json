@@ -4,10 +4,8 @@
     "items": [
       { "title": "Find file by name in current directory", "content": "find . -maxdepth 2 -name \"file\"" },
       { "title": "List open network sockets of a process", "content": "netstat -aonp | grep <process_name>" },
-      {
-        "title": "Setup Proxy",
-        "content": "export {HTTP,HTTPS,FTP}_PROXY=127.0.0.1:8080\nexport {http,https,ftp}_proxy=127.0.0.1:8080"
-      }
+      { "title": "Setup Proxy", "content": "export {HTTP,HTTPS,FTP}_PROXY=127.0.0.1:8080\nexport {http,https,ftp}_proxy=127.0.0.1:8080" },
+      { "title": "Compress Extract using tar", "content": "tar -cvJpf archive.tar.xz directory # compress directory\r\ntar -xvJf archive.tar.xz -C directory # extract to directory" }
     ]
   },
   {
