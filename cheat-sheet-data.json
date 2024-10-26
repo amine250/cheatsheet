@@ -14,10 +14,14 @@
   {
     "category": "Bash Snippets",
     "items": [
-      {
-        "title": "Trust company certificate inside WSL and Python for AWS CLI",
-        "content": "echo quit | openssl s_client -showcerts -servername \"eu-west-1.signin.aws.amazon.com\" -connect eu-west-1.signin.aws.amazon.com:443 > cacert.crt\nsudo cp cacert.crt \/usr\/local\/share\/ca-certificates\/cacert.crt\nsudo update-ca-certificates\npip3 config set global.cert \/etc\/ssl\/certs\/ca-certificates.crt"
-      }
+      { "title": "Trust company certificate inside WSL and Python for AWS CLI", "content": "echo quit | openssl s_client -showcerts -servername \"eu-west-1.signin.aws.amazon.com\" -connect eu-west-1.signin.aws.amazon.com:443 > cacert.crt\nsudo cp cacert.crt \/usr\/local\/share\/ca-certificates\/cacert.crt\nsudo update-ca-certificates\npip3 config set global.cert \/etc\/ssl\/certs\/ca-certificates.crt" }
+    ]
+  },
+  
+  {
+    "category": "Windows",
+    "items": [
+      { "title": "Windows God Mode", "content": "Create a folder named:\nGodMode.{ED7BA470-8E54-465E-825C-99712043E01C}" }
     ]
   },
   {
